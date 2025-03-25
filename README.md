@@ -1,13 +1,118 @@
-# React + Vite
+# ❤️‍🩹 Mood Comforter (React Version)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> An interactive mood tracker built with **React** that provides comforting messages based on selected emotions. This version enhances the original with React state management and component-based structure.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [General Info](#general-info)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Code Examples](#code-examples)
+- [Features](#features)
+- [To-Do List](#to-do-list)
+- [Project Status](#project-status)
+- [Inspiration](#inspiration)
+- [Contact](#contact)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# mood-comforter-react
+## General Info
+
+Mood Comforter allows users to select their mood(s) and receive comforting messages. This React-based version uses **React hooks** for state management and implements **localStorage** to save mood selections.
+
+---
+
+## Screenshots
+
+![Mood Comforter Screenshot](./public/screentshot.png)
+
+---
+
+## Technologies
+
+- React (v18+)
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Node.js (v25)
+- Visual Studio Code (IDE)
+
+---
+
+## Setup
+
+1. Clone this repository:
+
+   ```sh
+   git clone https://github.com/boba-milktea/mood-comforter-react.git
+   ```
+
+2. Navigate to the project folder:
+
+   ```sh
+   cd mood-comforter-react
+   ```
+
+3. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+5. Open the app in your browser at `http://localhost:${at your localhost}`.
+
+---
+
+## Code Examples
+
+Example of handling mood selection and local storage update:
+
+```js
+const handleChange = (e) => {
+  const { checked, id } = e.target;
+  setMoods((prev) =>
+    checked ? [...prev, id] : prev.filter((mood) => mood !== id)
+  );
+};
+```
+
+---
+
+## Features
+
+- ✅ Select multiple moods
+- ✅ Get mood-based comforting messages
+- ✅ Save and load moods using localStorage
+
+---
+
+## To-Do List
+
+- [ ] Implement **Theme Context** to dynamically change the background based on the selected mood
+- [ ] Improve accessibility (ARIA labels)
+- [ ] Enhance UI/UX with animations
+
+---
+
+## Project Status
+
+Project is: 🚧 In Progress
+
+---
+
+## Inspiration
+
+Inspired by simple comfort message apps and the idea of using technology to bring emotional support.
+
+---
+
+## Contact
+
+By [boba-milktea](https://github.com/boba-milktea)

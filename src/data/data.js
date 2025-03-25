@@ -40,17 +40,11 @@ export const data = {
       "Happiness is still there, just resting for now. 🌙",
       "Recharge and let happiness shine again tomorrow! ☀️",
     ],
-    happy_excited: [
+    excited_happy: [
       "Good, let's keep going.",
       "Your energy is contagious! Keep spreading the joy! 🎉",
       "This is the perfect moment to create something amazing! 🚀",
       "Let’s ride this wave of excitement together! 🌊",
-    ],
-    excited_happy: [
-      "I don't think I understand that feeling.",
-      "Emotions are complicated, and that's okay. 💛",
-      "It's okay to feel mixed emotions—just take it one step at a time. 🌈",
-      "Maybe happiness and sadness are working together today. 🤔",
     ],
     excited_sad: [
       "That's a complex feeling.",
