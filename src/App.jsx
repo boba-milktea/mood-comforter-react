@@ -17,9 +17,10 @@ export default function App() {
   const [result, setResult] = useState(data.result);
 
   const handleChange = (e) => {
-    e.target.checked
-      ? setMoods((prev) => [...prev, e.target.id])
-      : setMoods(moods.filter((id) => id !== e.target.id));
+    const { checked, id } = e.target;
+    setMoods((prev) =>
+      checked ? [...prev, e.target.id] : prev.filter((mood) => mood !== id)
+    );
   };
 
   const handleClick = () => {
@@ -29,6 +30,7 @@ export default function App() {
   };
 
   useEffect(() => {
+    console.log(moods);
     if (moods.length === 1) {
       setResult(getMessage(moods[0]));
     } else if (moods.length === 2) {
@@ -39,6 +41,8 @@ export default function App() {
       setResult("I am here for you.");
     }
   }, [moods]);
+
+  // when the window reloaded, it will show the old moods
 
   useEffect(() => {
     window.addEventListener("load", handleLoad);
