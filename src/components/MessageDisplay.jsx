@@ -3,7 +3,7 @@ import React from "react";
 const MessageDisplay = ({ children }) => {
   return (
     <div className="message">
-      {!children ? "How're you feeling today?" : children}
+      <p>{!children ? "How're you feeling today?" : children}</p>
     </div>
   );
 };

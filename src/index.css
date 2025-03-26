@@ -3,9 +3,15 @@
 :root {
   --clr-bk: #fcfaf9;
   --clr-text: #333333;
-  --clr-btn-bk: #bb9ab1;
+  --clr-message-bk: #bb9ab1;
+  --clr-save-btn: #938acd;
+  --clr-remove-btn: #a697cf;
   --clr-primary: #8d77ab;
   --clr-secondary: #fada7a;
+  --clr-happy: #ffddcc;
+  --clr-sad: #aec6cf;
+  --clr-tired: #d2b48c;
+  --clr-excited: #fff4b2;
   --typewriter-speed: 5s;
   --typewriter-charaters: 27;
 }
@@ -20,12 +26,13 @@
 body {
   font-family: "Montserrat", sans-serif;
   display: grid;
+  place-items: center;
   min-height: 100vh;
-  place-content: center;
   background-color: var(--clr-bk);
   color: var(--clr-text);
   line-height: 1.6;
   padding: 1.5em;
+  transition: background-color 0.5s ease;
 }
 
 h1,
@@ -41,11 +48,89 @@ p {
   color: var(--clr-text);
 }
 
+/* Mood background */
+.happy {
+  background-color: var(--clr-happy);
+}
+.sad {
+  background-color: var(--clr-sad);
+}
+.tired {
+  background-color: var(--clr-sad);
+}
+.excited {
+  background-color: var(--clr-excited);
+}
+.happy_tired {
+  background: linear-gradient(70deg, var(--clr-happy), var(--clr-tired));
+}
+.excited_happy {
+  background: linear-gradient(110deg, var(--clr-excited), var(--clr-happy));
+}
+
+.excited_sad {
+  background: linear-gradient(350deg, var(--clr-excited), var(--clr-sad));
+}
+
+.sad_tired {
+  background: linear-gradient(90deg, var(--clr-sad), var(--clr-tired));
+}
+
+.excited_tired {
+  background: linear-gradient(120deg, var(--clr-excited), var(--clr-tired));
+}
+
+.happy_sad {
+  background: linear-gradient(200deg, var(--clr-happy), var(--clr-sad));
+}
+
+.three-moods {
+  background: linear-gradient(
+    200deg,
+    var(--clr-happy),
+    var(--clr-sad),
+    var(--clr-excited)
+  );
+}
+
+.four-moods {
+  background: linear-gradient(
+    120deg,
+    var(--clr-excited),
+    var(--clr-sad),
+    var(--clr-happy),
+    var(--clr-tired)
+  );
+  animation: gradientShift 7s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header,
+.container {
+  background-color: var(--clr-bk);
+}
+
 /* Headings */
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 8px;
 }
 h1 {
   font-size: clamp(2rem, 2vw, 5rem);
@@ -54,7 +139,7 @@ h1 {
 }
 
 .tagline {
-  font-size: clamp(1.5rem, 2vw, 3rem);
+  font-size: clamp(1.5rem, 1.8vw, 3rem);
   position: relative;
   width: max-content;
   margin-bottom: 1em;
@@ -99,6 +184,18 @@ h1 {
   }
 }
 
+/* Containers */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  margin: 0 auto;
+  padding: 1.875em;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
 /* Checkbox */
 .checkbox-field {
   border: 1px solid transparent;
@@ -108,8 +205,8 @@ h1 {
 
 legend {
   margin: auto;
-  padding: 0 10px;
-  font-size: 1.3rem;
+  padding: 0 1em;
+  font-size: clamp(1.3rem, 1.6vw, 1.6rem);
 }
 
 .checkbox {
@@ -142,7 +239,7 @@ legend {
 }
 
 .checkbox input[type="checkbox"]::after {
-  background: var(--clr-btn-bk);
+  background: var(--clr-message-bk);
   content: "";
   border-radius: 1.25em;
   height: 1.2em;
@@ -170,50 +267,54 @@ label {
 }
 
 /* Buttons */
+
+.btn-container {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+}
+
 button {
   font-family: "Montserrat", sans-serif;
-  background-color: var(--clr-btn-bk);
+  background-color: var(--clr-message-bk);
   color: var(--clr-bk);
   border: none;
-  border-radius: 25px;
-  padding: 10px 20px;
+  width: 10em;
+  border-radius: 10px;
+  padding: 0.7em;
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-button:hover,
-button:focus {
-  background-color: #957abc;
-  color: var(--clr-bk);
+  align-self: center;
 }
 
 button:active {
-  transform: translateY(5px);
+  transform: translateY(3px);
 }
 
-/* Containers */
-.container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1.875em;
-  background-color: var(--off-white);
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.btn-save {
+  background-color: var(--clr-save-btn);
+}
+
+.btn-remove {
+  background-color: var(--clr-remove-btn);
 }
 
 /* Mood Messages */
 .message {
+  margin-top: 1.25em;
+  padding: 1.25em 1.5em;
+  background-color: var(--clr-message-bk);
+  border-radius: 10px;
+  width: clamp(100%, 90%, 60%);
+  align-self: center;
+}
+
+.message p {
   text-align: center;
   font-size: 1.25rem;
-  margin-top: 20px;
-  padding: 20px;
-  background-color: var(--clr-btn-bk);
-  border-radius: 10px;
   color: #fff;
-  max-width: 400px;
+  font-weight: 500;
 }
 
 /* Footer

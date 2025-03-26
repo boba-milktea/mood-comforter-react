@@ -1,6 +1,6 @@
 import React from "react";
 
-const MoodSelector = ({ children }) => {
+const MoodCheckbox = ({ children }) => {
   return (
     <>
       <legend>Tell me about your feeling</legend>
@@ -9,4 +9,4 @@ const MoodSelector = ({ children }) => {
   );
 };
 
-export default MoodSelector;
+export default MoodCheckbox;
